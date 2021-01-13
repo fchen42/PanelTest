@@ -1,0 +1,18 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:PanelTest">
+    <Color x:Key="BackgroundLight">#efefef</Color>
+    <SolidColorBrush x:Key="BackgroundLightBrush" Color="{StaticResource BackgroundLight}" />
+
+    <Color x:Key="BackgroundExtremelyLight">#fafafa</Color>
+    <SolidColorBrush x:Key="BackgroundExtremelyLightBrush" Color="{StaticResource BackgroundExtremelyLight}" />
+
+    <Color x:Key="ForegroundMain">#686868</Color>
+    <SolidColorBrush x:Key="ForegroundMainBrush" Color="{StaticResource ForegroundMain}" />
+
+    <Color x:Key="ForegroundExtremelyDark">#000000</Color>
+    <SolidColorBrush x:Key="ForegroundExtremelyDarkBrush" Color="{StaticResource ForegroundExtremelyDark}" />
+
+    <Color x:Key="ForegroundExtremelyLight">#ffffff</Color>
+    <SolidColorBrush x:Key="ForegroundExtremelyLightBrush" Color="{StaticResource ForegroundExtremelyLight}" />
+</ResourceDictionary>
