@@ -31,6 +31,7 @@
     <Style x:Key="WindowsButton" TargetType="{x:Type Button}" BasedOn="{StaticResource HoverLess}">
         <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
         <Setter Property="Foreground" Value="{StaticResource ForegroundMainBrush}" />
+        <Setter Property="FontFamily" Value="{StaticResource FontAwesome}" />
 
         <Setter Property="Template">
             <Setter.Value>

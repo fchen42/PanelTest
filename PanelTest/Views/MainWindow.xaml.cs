@@ -10,6 +10,9 @@ namespace PanelTest.Views
         public MainWindow()
         {
             InitializeComponent();
+
+            // 最大化时不要覆盖系统任务栏
+            MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
         }
     }
 }

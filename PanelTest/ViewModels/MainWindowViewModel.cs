@@ -1,6 +1,7 @@
 ﻿using PropertyChanged;
 using System.Windows;
 using System.Windows.Input;
+using PanelTest.Models;
 
 namespace PanelTest.ViewModels
 {
@@ -44,6 +45,11 @@ namespace PanelTest.ViewModels
         /// </summary>
         public int ResizeBorderSize => OuterMarginSize + ResizeAreaSize;
 
+        /// <summary>
+        /// 当前显示页面。
+        /// </summary>
+        public AppPage CurrentPage { get; set; } = AppPage.Main;
+
         #endregion
 
         #region Constructor
@@ -71,7 +77,7 @@ namespace PanelTest.ViewModels
         /// <summary>
         /// 关闭窗口命令。
         /// </summary>
-        public ICommand CloseWindowCommand => new RelayCommand(() => { });
+        public ICommand CloseWindowCommand => new RelayCommand(() => Application.Current.Shutdown());
 
         #endregion
     }
