@@ -10,7 +10,10 @@
         AllowsTransparency="true"
         x:Name="AppWindow"
         WindowStartupLocation="CenterScreen"
+        WindowState="{Binding ViewWindowState, Mode=TwoWay}"
         Title="{Binding WindowTitle}"
+        MinWidth="900"
+        MinHeight="600"
         Width="900"
         Height="600">
     <!-- 设定 Data Context -->
@@ -21,7 +24,7 @@
     <WindowChrome.WindowChrome>
         <WindowChrome
             ResizeBorderThickness="{Binding ResizeBorderSize}"
-            CaptionHeight="{Binding TitleBarHeight}"/>
+            CaptionHeight="32" />
     </WindowChrome.WindowChrome>
 
     <Window.Resources>
@@ -43,7 +46,7 @@
                                 <!-- 窗口主体 -->
                                 <Grid>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="{Binding TitleBarHeight, FallbackValue=32}" />
+                                        <RowDefinition Height="32" />
                                         <RowDefinition Height="Auto" />
                                         <RowDefinition Height="*" />
                                     </Grid.RowDefinitions>
@@ -63,11 +66,33 @@
 
                                         <!-- 标题 -->
                                         <Viewbox Grid.Column="1" Margin="0">
-                                            <TextBox Background="Transparent" Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Title, FallbackValue=PanelTest}" />
+                                            <TextBlock Style="{StaticResource HeaderText}" Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Title, FallbackValue=PanelTest}" />
                                         </Viewbox>
 
-                                        
+                                        <!-- Windows 按钮 -->
+                                        <StackPanel Grid.Column="2" Orientation="Horizontal">
+                                            <Button Style="{StaticResource WindowsButton}" Command="{Binding MinimizeWindowCommand}" Content="➖" />
+                                            <Button Style="{StaticResource WindowsMaximizeButton}" Command="{Binding MaximizeWindowCommand}" Content="➕" Tag="☐" />
+                                            <Button Style="{StaticResource WindowsCloseButton}" Command="{Binding CloseWindowCommand}" Content="❌" />
+                                        </StackPanel>
                                     </Grid>
+
+                                    <!-- 阴影 -->
+                                    <Border Grid.Row="1" Height="6" BorderThickness="0 0.2 0 0">
+                                        <!-- Underline -->
+                                        <Border.BorderBrush>
+                                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                                <GradientStop Color="{StaticResource ForegroundExtremelyLight}" Offset="0.0" />
+                                                <GradientStop Color="{StaticResource ForegroundMain}" Offset="0.5" />
+                                                <GradientStop Color="{StaticResource ForegroundExtremelyLight}" Offset="1.0" />
+                                            </LinearGradientBrush>
+                                        </Border.BorderBrush>
+                                    </Border>
+
+                                    <!-- Page Content -->
+                                    <Border Grid.Row="2" Padding="5">
+
+                                    </Border>
                                 </Grid>
                             </Grid>
                         </Border>

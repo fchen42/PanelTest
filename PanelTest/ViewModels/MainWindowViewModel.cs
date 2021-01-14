@@ -7,6 +7,12 @@ namespace PanelTest.ViewModels
     [AddINotifyPropertyChangedInterface]
     public class MainWindowViewModel
     {
+        #region Private Members
+
+        private int _outerMarginSize = 10;
+
+        #endregion
+
         #region Public Properties
 
         /// <summary>
@@ -20,14 +26,13 @@ namespace PanelTest.ViewModels
         public string WindowTitle { get; set; } = "PanelTest";
 
         /// <summary>
-        /// 标题栏高度。
-        /// </summary>
-        public int TitleBarHeight { get; set; } = 36;
-
-        /// <summary>
         /// 窗口外边框大小。
         /// </summary>
-        public int OuterMarginSize { get; set; } = 10;
+        public int OuterMarginSize
+        {
+            get => ViewWindowState == WindowState.Maximized ? 5 : _outerMarginSize;
+            set => _outerMarginSize = value;
+        }
 
         /// <summary>
         /// 可拖拽缩放区域大小。
@@ -55,12 +60,18 @@ namespace PanelTest.ViewModels
         /// <summary>
         /// 窗口最大化命令。
         /// </summary>
-        public ICommand WindowMaximizeCommand => new RelayCommand(() => ViewWindowState = WindowState.Maximized);
+        // ReSharper disable once BitwiseOperatorOnEnumWithoutFlags
+        public ICommand MaximizeWindowCommand => new RelayCommand(() => ViewWindowState ^= WindowState.Maximized);
 
         /// <summary>
         /// 窗口最小化命令。
         /// </summary>
-        public ICommand WindowMinimizeCommand => new RelayCommand(() => ViewWindowState = WindowState.Minimized);
+        public ICommand MinimizeWindowCommand => new RelayCommand(() => ViewWindowState = WindowState.Minimized);
+
+        /// <summary>
+        /// 关闭窗口命令。
+        /// </summary>
+        public ICommand CloseWindowCommand => new RelayCommand(() => { });
 
         #endregion
     }

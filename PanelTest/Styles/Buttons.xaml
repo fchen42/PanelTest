@@ -15,15 +15,65 @@
 
     <!-- 应用程序 Icon -->
     <Style x:Key="AppIcon" TargetType="{x:Type Button}" BasedOn="{StaticResource HoverLess}">
+        <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Border Padding="5">
+                    <Border Padding="10 5">
                         <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+    </Style>
+
+    <!-- 最小化按钮 -->
+    <Style x:Key="WindowsButton" TargetType="{x:Type Button}" BasedOn="{StaticResource HoverLess}">
+        <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
+        <Setter Property="Foreground" Value="{StaticResource ForegroundMainBrush}" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Padding="5" Background="{TemplateBinding Background}">
+                        <TextBlock Padding="5" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{TemplateBinding Content}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource BackgroundExtremelyLightBrush}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    
+    <!-- 最大化按钮 -->
+    <!-- 这里用一个额外的 template 来帮助切换图标。直接通过 Setter 修改 Content 不起作用，我猜是因为 TemplateBinding 是只触发一次的。 -->
+    <ControlTemplate x:Key="MaximizeButtonTemplateWhenWindowIsMaximized" TargetType="{x:Type Button}">
+        <Border Padding="5" Background="{TemplateBinding Background}">
+            <TextBlock Padding="5" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{TemplateBinding Tag}" />
+        </Border>
+    </ControlTemplate>
+
+    <Style x:Key="WindowsMaximizeButton" TargetType="{x:Type Button}" BasedOn="{StaticResource WindowsButton}">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=WindowState}" Value="Maximized">
+                <Setter Property="Template" Value="{StaticResource MaximizeButtonTemplateWhenWindowIsMaximized}" />
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- 关闭按钮 -->
+    <Style x:Key="WindowsCloseButton" TargetType="{x:Type Button}" BasedOn="{StaticResource WindowsButton}">
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource AlarmBrush}" />
+                <Setter Property="Foreground" Value="{StaticResource ForegroundExtremelyLightBrush}" />
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
 </ResourceDictionary>
