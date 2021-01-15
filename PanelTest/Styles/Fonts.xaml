@@ -3,8 +3,8 @@
                     xmlns:local="clr-namespace:PanelTest"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <FontFamily x:Key="RobotoLight">pack://application;,,,/Assets/Fonts/#Roboto Light</FontFamily>
-    <FontFamily x:Key="FontAwesome">pack://application;,,,/Assets/Fonts/#FontAwesome</FontFamily>
-
+    <FontFamily x:Key="FontAwesome">pack://application:,,,/Assets/Fonts/#FontAwesome</FontFamily>
+    
     <Style x:Key="BaseStyle" TargetType="{x:Type Control}">
         <Setter Property="FontFamily" Value="{StaticResource RobotoLight}" />
         <Setter Property="FontSize" Value="12" />
