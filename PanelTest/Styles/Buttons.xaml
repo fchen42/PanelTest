@@ -15,11 +15,13 @@
 
     <!-- 应用程序 Icon -->
     <Style x:Key="AppIcon" TargetType="{x:Type Button}" BasedOn="{StaticResource HoverLess}">
-        <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="Height" Value="20" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Border Padding="10 5">
+                    <Border Padding="0">
                         <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
                     </Border>
                 </ControlTemplate>
@@ -89,6 +91,31 @@
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="{StaticResource AlarmBrush}" />
                 <Setter Property="Foreground" Value="{StaticResource ForegroundExtremelyLightBrush}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- 菜单按钮 -->
+    <Style x:Key="MenuIcon" TargetType="{x:Type ToggleButton}">
+        <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
+        <Setter Property="Foreground" Value="{StaticResource ForegroundExtremelyLightBrush}" />
+        <Setter Property="FontFamily" Value="{StaticResource FontAwesome}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="FontSize" Value="24" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Border Background="{TemplateBinding Background}">
+                        <TextBlock Padding="5" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{TemplateBinding Content}" FontFamily="{TemplateBinding FontFamily}" FontSize="{TemplateBinding FontSize}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <!-- <Setter Property="Foreground" Value="White" /> -->
             </Trigger>
         </Style.Triggers>
     </Style>

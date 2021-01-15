@@ -9,6 +9,6 @@
       Title="MainPage">
 
     <Grid>
-        <TextBlock FontFamily="{StaticResource FontAwesome}" Text="&#xf2d2;"></TextBlock>
+        <!--<Button Content="hello world" />-->
     </Grid>
 </Page>
