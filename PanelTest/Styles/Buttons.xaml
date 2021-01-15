@@ -32,7 +32,7 @@
     <!-- 最小化按钮 -->
     <Style x:Key="WindowsButton" TargetType="{x:Type Button}" BasedOn="{StaticResource HoverLess}">
         <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
-        <Setter Property="Foreground" Value="{StaticResource ForegroundMainBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource ForegroundLightBrush}" />
         <Setter Property="FontFamily" Value="{StaticResource FontAwesome}" />
 
         <Setter Property="Template">
@@ -47,6 +47,7 @@
 
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{StaticResource ForegroundMainBrush}" />
                 <Setter Property="Background" Value="{StaticResource BackgroundExtremelyLightBrush}" />
             </Trigger>
         </Style.Triggers>

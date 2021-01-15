@@ -30,15 +30,6 @@
     </WindowChrome.WindowChrome>
 
     <Window.Resources>
-        <Style x:Key="NavItem.Style" TargetType="controls:NavItem">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="controls:NavItem">
-                        <TextBlock Text="{TemplateBinding Icon}" FontFamily="{TemplateBinding FontFamily}" />
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
         <Style TargetType="{x:Type local:MainWindow}">
             <Setter Property="Template">
                 <Setter.Value>
@@ -61,20 +52,14 @@
                                     </Grid.ColumnDefinitions>
 
                                     <!-- 导航 -->
-                                    <controls:NavigationDrawer CollapsedWidth="60" ExpandedWidth="220">
-                                        <controls:NavigationDrawer.NavItems>
-                                            <controls:NavItemPanel>
-                                                <controls:NavItemPanel.Items>
-                                                    <controls:NavItem Icon="&#xf00d;" Style="{StaticResource NavItem.Style}" />
-                                                    <controls:NavItem Icon="&#xf00d;" Style="{StaticResource NavItem.Style}" />
-                                                    <controls:NavItem Icon="&#xf00d;" Style="{StaticResource NavItem.Style}" />
-                                                    <controls:NavItem Icon="&#xf00d;" Style="{StaticResource NavItem.Style}" />
-                                                </controls:NavItemPanel.Items>
-                                            </controls:NavItemPanel>
-                                        </controls:NavigationDrawer.NavItems>
-                                    </controls:NavigationDrawer>
+                                    <controls:NavigationDrawer 
+                                        MenuTitleIcon="/Assets/Images/Logo.png"
+                                        MenuTitle="{TemplateBinding Title}"
+                                        MenuSubTitle="v1.0"
+                                        CollapsedWidth="60"
+                                        ExpandedWidth="200" />
 
-                                            <!-- 窗口主体 -->
+                                        <!-- 窗口主体 -->
                                     <Grid Grid.Column="1">
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="32" />

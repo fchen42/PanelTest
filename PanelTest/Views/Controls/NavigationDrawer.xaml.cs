@@ -1,39 +1,82 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 
 namespace PanelTest.Views.Controls
 {
     /// <summary>
-    /// NavigationDrawer.xaml 的交互逻辑
+    ///     NavigationDrawer.xaml 的交互逻辑
     /// </summary>
     public partial class NavigationDrawer : UserControl
     {
+        #region Constructor
+
         public NavigationDrawer()
         {
             InitializeComponent();
         }
 
+        #endregion
+
+        #region Public Properties
+
         public int CollapsedWidth
         {
-            get => (int)GetValue(CollapsedWidthProperty);
+            get => (int) GetValue(CollapsedWidthProperty);
             set => SetValue(CollapsedWidthProperty, value);
         }
 
-        public static readonly DependencyProperty CollapsedWidthProperty =
-            DependencyProperty.Register("CollapsedWidth", typeof(int), typeof(NavigationDrawer), new PropertyMetadata(0));
-
-
-
         public int ExpandedWidth
         {
-            get => (int)GetValue(ExpandedWidthProperty);
+            get => (int) GetValue(ExpandedWidthProperty);
             set => SetValue(ExpandedWidthProperty, value);
         }
 
-        public static readonly DependencyProperty ExpandedWidthProperty =
-            DependencyProperty.Register("ExpandedWidth", typeof(int), typeof(NavigationDrawer), new PropertyMetadata(0));
+        public string MenuTitleIcon
+        {
+            get => (string) GetValue(MenuTitleIconProperty);
+            set => SetValue(MenuTitleIconProperty, value);
+        }
 
+        public string MenuTitle
+        {
+            get => (string) GetValue(MenuTitleProperty);
+            set => SetValue(MenuTitleProperty, value);
+        }
+
+        public string MenuSubTitle
+        {
+            get => (string)GetValue(MenuSubTitleProperty);
+            set => SetValue(MenuSubTitleProperty, value);
+        }
+
+        #endregion
+
+        #region Dependency Properties
+
+        public static readonly DependencyProperty CollapsedWidthProperty =
+            DependencyProperty.Register(nameof(CollapsedWidth), typeof(int), typeof(NavigationDrawer),
+                new PropertyMetadata(0));
+
+        public static readonly DependencyProperty ExpandedWidthProperty =
+            DependencyProperty.Register(nameof(ExpandedWidth), typeof(int), typeof(NavigationDrawer),
+                new PropertyMetadata(0));
+
+        public static readonly DependencyProperty MenuTitleIconProperty =
+            DependencyProperty.Register(nameof(MenuTitleIcon), typeof(string), typeof(NavigationDrawer),
+                new PropertyMetadata(null));
+
+        public static readonly DependencyProperty MenuTitleProperty =
+            DependencyProperty.Register(nameof(MenuTitle), typeof(string), typeof(NavigationDrawer),
+                new PropertyMetadata(null));
+
+        public static readonly DependencyProperty MenuSubTitleProperty =
+            DependencyProperty.Register(nameof(MenuSubTitle), typeof(string), typeof(NavigationDrawer),
+                new PropertyMetadata(null));
+
+        #endregion
+
+
+        /*
 
         public NavItemPanel NavItems
         {
@@ -43,9 +86,10 @@ namespace PanelTest.Views.Controls
 
         public static readonly DependencyProperty NavItemsProperty =
             DependencyProperty.Register("NavItems", typeof(NavItemPanel), typeof(NavigationDrawer), new PropertyMetadata(null));
-
+            */
     }
 
+    /*
     public class NavItemPanel : Selector
     {
 
@@ -63,4 +107,5 @@ namespace PanelTest.Views.Controls
             DependencyProperty.Register("Icon", typeof(string), typeof(NavItem), new PropertyMetadata(""));
 
     }
+    */
 }

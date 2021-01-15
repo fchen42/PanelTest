@@ -72,9 +72,6 @@
     <Compile Include="Views\Controls\NavigationDrawer.xaml.cs">
       <DependentUpon>NavigationDrawer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Controls\NavigationDrawerHeader.xaml.cs">
-      <DependentUpon>NavigationDrawerHeader.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -103,10 +100,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Controls\NavigationDrawer.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Controls\NavigationDrawerHeader.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

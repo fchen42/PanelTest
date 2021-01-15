@@ -1,18 +1,21 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:PanelTest"
-                    xmlns:controls="clr-namespace:PanelTest.Views.Controls">
+                    xmlns:controls="clr-namespace:PanelTest.Views.Controls"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
     
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="Colors.xaml" />
         <ResourceDictionary Source="Fonts.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
+    <system:String x:Key="DefaultLogo">pack://application:,,,/Assets/Images/Logo.png</system:String>
+
     <Style x:Key="NavigationDrawer" TargetType="{x:Type UserControl}">
         <Setter Property="Background" Value="{StaticResource BackgroundSecondaryBrush}" />
         <Setter Property="Foreground" Value="{StaticResource ForegroundExtremelyLightBrush}" />
 
-        <Setter Property="Template">
+        <!--<Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:NavigationDrawer">
                     <Border BorderBrush="Red" BorderThickness="1">
@@ -20,7 +23,7 @@
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
-        </Setter>
+        </Setter>-->
 
     </Style>
 
