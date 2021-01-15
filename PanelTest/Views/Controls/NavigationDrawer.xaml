@@ -9,60 +9,9 @@
              Style="{StaticResource NavigationDrawer}"
              d:DesignHeight="600" d:DesignWidth="60">
     
-    <StackPanel x:Name="NavPanel" Width="60">
+    <StackPanel>
         <!-- 菜单触发按钮 -->
-        <Grid Height="80">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="60" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
+        <local:NavigationDrawerHeader />
 
-                <ToggleButton Style="{StaticResource MenuIcon}" Content="&#xf0c9;">
-
-                    <ToggleButton.Triggers>
-                        <EventTrigger RoutedEvent="ToggleButton.Unchecked">
-                            <BeginStoryboard>
-                                <Storyboard x:Name="ShrinkNavPanel">
-                                    <DoubleAnimation
-                                        Storyboard.TargetName="NavPanel"
-                                        Storyboard.TargetProperty="Width"
-                                        BeginTime="0:0:0"
-                                        From="180"
-                                        To="60"
-                                        Duration="0:0:0.2" />
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
-
-                        <EventTrigger RoutedEvent="ToggleButton.Checked">
-                            <BeginStoryboard>
-                                <Storyboard x:Name="ExpandNavPanel">
-                                    <DoubleAnimation
-                                        Storyboard.TargetName="NavPanel"
-                                        Storyboard.TargetProperty="Width"
-                                        BeginTime="0:0:0"
-                                        From="60"
-                                        To="180"
-                                        Duration="0:0:0.3" />
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </ToggleButton.Triggers>
-                </ToggleButton>
-
-                <StackPanel Grid.Column="1" VerticalAlignment="Center">
-
-                    <!-- App Icon -->
-                    <Button Style="{StaticResource AppIcon}" Margin="0 5 0 5">
-                        <Image Source="/Assets/Images/Logo.png" />
-                    </Button>
-                    <TextBlock Text="PanelTest" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" />
-                    <TextBlock Text="v1.0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="10" />
-                </StackPanel>
-            </Grid>
-        </Grid>
-
-        
     </StackPanel>
 </UserControl>
