@@ -7,14 +7,14 @@
         xmlns:viewModels="clr-namespace:PanelTest.ViewModels"
         xmlns:valueConverters="clr-namespace:PanelTest.ValueConverters"
         xmlns:controls="clr-namespace:PanelTest.Views.Controls"
-        xmlns:nav="clr-namespace:PanelTest.Views.Controls.Nav"
+        xmlns:navigation="clr-namespace:PanelTest.Views.Controls.Navigation"
         mc:Ignorable="d"
         WindowStyle="None"
         AllowsTransparency="true"
         x:Name="AppWindow"
         WindowStartupLocation="CenterScreen"
         WindowState="{Binding ViewWindowState, Mode=TwoWay}"
-        Title="{Binding WindowTitle}"
+        Title="{Binding WindowTitle, FallbackValue=PanelTest}"
         MinWidth="900"
         MinHeight="600"
         Width="900"
@@ -53,22 +53,21 @@
                                     </Grid.ColumnDefinitions>
 
                                     <!-- 导航 -->
-                                    <nav:NavigationDrawer
-                                        Style="{StaticResource NavigationDrawer}"
+                                    <navigation:NavigationDrawer
+                                        Style="{StaticResource NavigationDrawer}" 
+                                        CollapsedWidth="60" 
+                                        ExpandedWidth="200"
                                         MenuTitleIcon="/Assets/Images/Logo.png"
-                                        MenuTitle="{TemplateBinding Title}"
-                                        MenuSubTitle="v1.0"
-                                        CollapsedWidth="60"
-                                        ExpandedWidth="200">
+                                        MenuTitle="{Binding WindowTitle, FallbackValue=PanelTest}"
+                                        MenuSubTitle="{Binding AppVersion, FallbackValue=Ver 1.0}">
 
-                                        <nav:NavigationItem FontAwesomeIcon="&#xf015;" Text="主界面" />
-                                        <nav:NavigationItem FontAwesomeIcon="&#xf03d;" Text="相机调试" />
-                                        <nav:NavigationItem FontAwesomeIcon="&#xf1fe;" Text="光谱仪调试" />
-                                        <nav:NavigationItem FontAwesomeIcon="&#xf1d5;" Text="亮度计调试" />
-                                        <nav:NavigationItem FontAwesomeIcon="&#xf013;" Text="设置" />
-                                    </nav:NavigationDrawer>
+                                        <!-- 菜单项 -->
+                                        <navigation:NavigationItem IconFontAwesome="&#xf015;" Text="主界面" />
+                                        <navigation:NavigationItem IconFontAwesome="&#xf013;" Text="设置" />
 
-                                        <!-- 窗口主体 -->
+                                    </navigation:NavigationDrawer>
+
+                                    <!-- 窗口主体 -->
                                     <Grid Grid.Column="1">
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="32" />
@@ -86,7 +85,7 @@
 
                                             <!-- 标题 -->
                                             <Viewbox Grid.Column="1" Margin="0">
-                                                <TextBlock Style="{StaticResource HeaderText}" Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Title, FallbackValue=PanelTest}" />
+                                                <TextBlock Style="{StaticResource HeaderText}" Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Title}" />
                                             </Viewbox>
 
                                             <!-- Windows 按钮 -->

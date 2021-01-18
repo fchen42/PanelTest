@@ -69,18 +69,14 @@
     <Compile Include="Models\AppPage.cs" />
     <Compile Include="ValueConverters\AppPageValueConverter.cs" />
     <Compile Include="ValueConverters\BaseValueConverter.cs" />
-    <Compile Include="Views\Controls\Nav\NavigationItem.xaml.cs">
-      <DependentUpon>NavigationItem.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Controls\Nav\NavigationDrawer.xaml.cs">
-      <DependentUpon>NavigationDrawer.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Views\Controls\Navigation\NavigationDrawer.cs" />
+    <Compile Include="Views\Controls\Navigation\NavigationItem.cs" />
     <Compile Include="Views\Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Page Include="Styles\UserControls.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="Styles\NavigationDrawer.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles\Buttons.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -99,14 +95,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Styles\Fonts.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Controls\Nav\NavigationDrawer.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Controls\Nav\NavigationItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

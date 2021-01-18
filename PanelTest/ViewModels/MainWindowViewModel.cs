@@ -1,7 +1,7 @@
-﻿using PropertyChanged;
+﻿using PanelTest.Models;
+using PropertyChanged;
 using System.Windows;
 using System.Windows.Input;
-using PanelTest.Models;
 
 namespace PanelTest.ViewModels
 {
@@ -19,12 +19,17 @@ namespace PanelTest.ViewModels
         /// <summary>
         /// 当前管理窗体的状态。
         /// </summary>
-        public WindowState ViewWindowState { get; set; }
+        public WindowState ViewWindowState { get; set; } = WindowState.Normal;
 
         /// <summary>
         /// 窗口标题。
         /// </summary>
         public string WindowTitle { get; set; } = "PanelTest";
+
+        /// <summary>
+        /// 程序版本描述字符串。
+        /// </summary>
+        public string AppVersion { get; set; } = "Ver 1.0";
 
         /// <summary>
         /// 窗口外边框大小。
@@ -49,15 +54,6 @@ namespace PanelTest.ViewModels
         /// 当前显示页面。
         /// </summary>
         public AppPage CurrentPage { get; set; } = AppPage.Main;
-
-        #endregion
-
-        #region Constructor
-
-        public MainWindowViewModel()
-        {
-            ViewWindowState = WindowState.Normal;
-        }
 
         #endregion
 

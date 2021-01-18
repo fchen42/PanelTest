@@ -12,7 +12,7 @@
                  <ResourceDictionary Source="Styles/Buttons.xaml" />
                  <ResourceDictionary Source="Styles/Texts.xaml" />
                  <ResourceDictionary Source="Styles/Windows.xaml" />
-                 <ResourceDictionary Source="Styles/UserControls.xaml" />
+                 <ResourceDictionary Source="Styles/NavigationDrawer.xaml" />
             </ResourceDictionary.MergedDictionaries>
          </ResourceDictionary>
     </Application.Resources>
