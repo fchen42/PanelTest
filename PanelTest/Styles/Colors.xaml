@@ -22,6 +22,9 @@
     <Color x:Key="Alarm">#ff0000</Color>
     <SolidColorBrush x:Key="AlarmBrush" Color="{StaticResource Alarm}" />
 
+    <Color x:Key="BackgroundMain">#11698e</Color>
+    <SolidColorBrush x:Key="BackgroundMainBrush" Color="{StaticResource BackgroundMain}" />
+
     <Color x:Key="BackgroundSecondary">#19456b</Color>
     <SolidColorBrush x:Key="BackgroundSecondaryBrush" Color="{StaticResource BackgroundSecondary}" />
 </ResourceDictionary>

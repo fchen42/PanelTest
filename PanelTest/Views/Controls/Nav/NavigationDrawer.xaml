@@ -74,6 +74,7 @@
             </Grid>
         </Grid>
 
+        <!-- 各菜单项 -->
         <StackPanel x:Name="NavItemsHost" />
     </StackPanel>
 </UserControl>

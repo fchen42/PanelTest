@@ -7,14 +7,23 @@
              mc:Ignorable="d"
              Height="50"
              d:DesignHeight="50" d:DesignWidth="200">
+    <UserControl.Resources>
+        <Style x:Key="NavigationItem" TargetType="{x:Type Grid}">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{StaticResource BackgroundMainBrush}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
 
-    <Grid>
+    <Grid Style="{StaticResource NavigationItem}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:NavigationDrawer}}, Path=CollapsedWidth}" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <ToggleButton Style="{StaticResource MenuIcon}" Content="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:NavigationItem}}, Path=FontAwesomeIcon}" />
-        <TextBlock Grid.Column="1" Style="{StaticResource BaseTextBlockStyle}" VerticalAlignment="Center" FontSize="16" Margin="15 0" Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:NavigationItem}}, Path=Text}" />
+        <ToggleButton Style="{StaticResource MenuIcon}" Content="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:NavigationItem}}, Path=FontAwesomeIcon, FallbackValue='&#xf015;'}" />
+        <TextBlock Grid.Column="1" Style="{StaticResource BaseTextBlockStyle}" VerticalAlignment="Center" FontSize="14" Margin="15 0" Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:NavigationItem}}, Path=Text, FallbackValue='主界面'}" />
     </Grid>
 </UserControl>

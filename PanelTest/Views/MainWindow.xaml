@@ -62,6 +62,9 @@
                                         ExpandedWidth="200">
 
                                         <nav:NavigationItem FontAwesomeIcon="&#xf015;" Text="主界面" />
+                                        <nav:NavigationItem FontAwesomeIcon="&#xf03d;" Text="相机调试" />
+                                        <nav:NavigationItem FontAwesomeIcon="&#xf1fe;" Text="光谱仪调试" />
+                                        <nav:NavigationItem FontAwesomeIcon="&#xf1d5;" Text="亮度计调试" />
                                         <nav:NavigationItem FontAwesomeIcon="&#xf013;" Text="设置" />
                                     </nav:NavigationDrawer>
 

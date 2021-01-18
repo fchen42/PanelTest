@@ -15,7 +15,6 @@ namespace PanelTest.Views.Controls.Nav
         public NavigationDrawer()
         {
             InitializeComponent();
-
             Items = NavItemsHost.Children;
         }
 
