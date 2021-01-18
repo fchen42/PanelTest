@@ -1,10 +1,12 @@
-﻿<UserControl x:Class="PanelTest.Views.Controls.NavigationDrawer"
+﻿<UserControl x:Class="PanelTest.Views.Controls.Nav.NavigationDrawer"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PanelTest.Views.Controls"
              xmlns:viewModels="clr-namespace:PanelTest.ViewModels"
+             xmlns:nav="clr-namespace:PanelTest.Views.Controls.Nav"
+             xmlns:nav1="clr-namespace:PanelTest.Views.Controls.Nav"
              mc:Ignorable="d"
              Style="{StaticResource NavigationDrawer}"
              d:DesignHeight="600" d:DesignWidth="200">
@@ -60,7 +62,7 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                
+
                 <!-- App Icon -->
                 <Button Style="{StaticResource AppIcon}">
                     <Image Source="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}, Path=MenuTitleIcon}"  />
@@ -72,5 +74,6 @@
             </Grid>
         </Grid>
 
+        <StackPanel x:Name="NavItemsHost" />
     </StackPanel>
 </UserControl>

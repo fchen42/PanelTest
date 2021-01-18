@@ -69,7 +69,10 @@
     <Compile Include="Models\AppPage.cs" />
     <Compile Include="ValueConverters\AppPageValueConverter.cs" />
     <Compile Include="ValueConverters\BaseValueConverter.cs" />
-    <Compile Include="Views\Controls\NavigationDrawer.xaml.cs">
+    <Compile Include="Views\Controls\Nav\NavigationItem.xaml.cs">
+      <DependentUpon>NavigationItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\Nav\NavigationDrawer.xaml.cs">
       <DependentUpon>NavigationDrawer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Pages\MainPage.xaml.cs">
@@ -99,7 +102,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Controls\NavigationDrawer.xaml">
+    <Page Include="Views\Controls\Nav\NavigationDrawer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Controls\Nav\NavigationItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,11 +1,13 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Markup;
 
-namespace PanelTest.Views.Controls
+namespace PanelTest.Views.Controls.Nav
 {
     /// <summary>
     ///     NavigationDrawer.xaml 的交互逻辑
     /// </summary>
+    [ContentProperty(nameof(Items))]
     public partial class NavigationDrawer : UserControl
     {
         #region Constructor
@@ -13,6 +15,8 @@ namespace PanelTest.Views.Controls
         public NavigationDrawer()
         {
             InitializeComponent();
+
+            Items = NavItemsHost.Children;
         }
 
         #endregion
@@ -21,25 +25,25 @@ namespace PanelTest.Views.Controls
 
         public int CollapsedWidth
         {
-            get => (int) GetValue(CollapsedWidthProperty);
+            get => (int)GetValue(CollapsedWidthProperty);
             set => SetValue(CollapsedWidthProperty, value);
         }
 
         public int ExpandedWidth
         {
-            get => (int) GetValue(ExpandedWidthProperty);
+            get => (int)GetValue(ExpandedWidthProperty);
             set => SetValue(ExpandedWidthProperty, value);
         }
 
         public string MenuTitleIcon
         {
-            get => (string) GetValue(MenuTitleIconProperty);
+            get => (string)GetValue(MenuTitleIconProperty);
             set => SetValue(MenuTitleIconProperty, value);
         }
 
         public string MenuTitle
         {
-            get => (string) GetValue(MenuTitleProperty);
+            get => (string)GetValue(MenuTitleProperty);
             set => SetValue(MenuTitleProperty, value);
         }
 
@@ -47,6 +51,12 @@ namespace PanelTest.Views.Controls
         {
             get => (string)GetValue(MenuSubTitleProperty);
             set => SetValue(MenuSubTitleProperty, value);
+        }
+
+        public UIElementCollection Items
+        {
+            get => (UIElementCollection)GetValue(ItemsProperty);
+            set => SetValue(ItemsProperty, value);
         }
 
         #endregion
@@ -73,39 +83,9 @@ namespace PanelTest.Views.Controls
             DependencyProperty.Register(nameof(MenuSubTitle), typeof(string), typeof(NavigationDrawer),
                 new PropertyMetadata(null));
 
+        public static readonly DependencyProperty ItemsProperty =
+            DependencyProperty.Register("Items", typeof(UIElementCollection), typeof(NavigationDrawer), new PropertyMetadata());
+
         #endregion
-
-
-        /*
-
-        public NavItemPanel NavItems
-        {
-            get => (NavItemPanel)GetValue(NavItemsProperty);
-            set => SetValue(NavItemsProperty, value);
-        }
-
-        public static readonly DependencyProperty NavItemsProperty =
-            DependencyProperty.Register("NavItems", typeof(NavItemPanel), typeof(NavigationDrawer), new PropertyMetadata(null));
-            */
     }
-
-    /*
-    public class NavItemPanel : Selector
-    {
-
-    }
-
-    public class NavItem : Selector
-    {
-        public string Icon
-        {
-            get => (string)GetValue(IconProperty);
-            set => SetValue(IconProperty, value);
-        }
-
-        public static readonly DependencyProperty IconProperty =
-            DependencyProperty.Register("Icon", typeof(string), typeof(NavItem), new PropertyMetadata(""));
-
-    }
-    */
 }

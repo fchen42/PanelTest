@@ -7,6 +7,7 @@
         xmlns:viewModels="clr-namespace:PanelTest.ViewModels"
         xmlns:valueConverters="clr-namespace:PanelTest.ValueConverters"
         xmlns:controls="clr-namespace:PanelTest.Views.Controls"
+        xmlns:nav="clr-namespace:PanelTest.Views.Controls.Nav"
         mc:Ignorable="d"
         WindowStyle="None"
         AllowsTransparency="true"
@@ -52,12 +53,17 @@
                                     </Grid.ColumnDefinitions>
 
                                     <!-- 导航 -->
-                                    <controls:NavigationDrawer 
+                                    <nav:NavigationDrawer
+                                        Style="{StaticResource NavigationDrawer}"
                                         MenuTitleIcon="/Assets/Images/Logo.png"
                                         MenuTitle="{TemplateBinding Title}"
                                         MenuSubTitle="v1.0"
                                         CollapsedWidth="60"
-                                        ExpandedWidth="200" />
+                                        ExpandedWidth="200">
+
+                                        <nav:NavigationItem FontAwesomeIcon="&#xf015;" Text="主界面" />
+                                        <nav:NavigationItem FontAwesomeIcon="&#xf013;" Text="设置" />
+                                    </nav:NavigationDrawer>
 
                                         <!-- 窗口主体 -->
                                     <Grid Grid.Column="1">
