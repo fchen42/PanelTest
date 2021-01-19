@@ -63,7 +63,9 @@
 
                                         <!-- 菜单项 -->
                                         <navigation:NavigationItem IconFontAwesome="&#xf015;" Text="主界面" />
+                                        <navigation:NavigationItem IconFontAwesome="&#xf188;" Text="调试" />
                                         <navigation:NavigationItem IconFontAwesome="&#xf013;" Text="设置" />
+                                        <navigation:NavigationItem IconFontAwesome="&#xf128;" Text="帮助" />
 
                                     </navigation:NavigationDrawer>
 

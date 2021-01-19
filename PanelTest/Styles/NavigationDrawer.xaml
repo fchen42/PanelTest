@@ -12,6 +12,38 @@
         <Setter Property="Foreground" Value="{StaticResource ForegroundExtremelyLightBrush}" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBox">
+                    <Border Background="{TemplateBinding ListBox.Background}" Padding="0">
+                        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled">
+                            <StackPanel Orientation="Vertical"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Stretch"
+                                        Width="{TemplateBinding Width}"
+                                        IsItemsHost="True"/>
+                        </ScrollViewer>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Setter Property="ItemTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <Grid Margin="0 6 0 6">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type nav:NavigationDrawer}}, Path=CollapsedWidth}" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <ToggleButton Style="{StaticResource MenuIcon2}" Content="{Binding IconFontAwesome}" />
+                        <TextBlock Grid.Column="1" Style="{StaticResource BaseTextBlockStyle}" VerticalAlignment="Center" FontSize="16" Margin="20 0" Text="{Binding Text}" />
+                    </Grid>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 
     <Style x:Key="NavigationDrawer" TargetType="{x:Type nav:NavigationDrawer}">
@@ -84,22 +116,10 @@
                         <ListBox ItemsSource="{Binding Items, RelativeSource={RelativeSource Mode=TemplatedParent}}" Style="{StaticResource MenuItemListBox}">
                             <ListBox.Resources>
                                 <Style TargetType="ListBoxItem">
-                                    <Setter Property="BorderThickness" Value="0"></Setter>
+                                    <Setter Property="BorderThickness" Value="0" />
+                                    <Setter Property="Padding" Value="0" />
                                 </Style>
                             </ListBox.Resources>
-                            <ListBox.ItemTemplate>
-                                <DataTemplate>
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type nav:NavigationDrawer}}, Path=CollapsedWidth}" />
-                                            <ColumnDefinition Width="*" />
-                                        </Grid.ColumnDefinitions>
-
-                                        <ToggleButton Style="{StaticResource MenuIcon}" Content="{Binding IconFontAwesome}" />
-                                        <TextBlock Grid.Column="1" Style="{StaticResource BaseTextBlockStyle}" VerticalAlignment="Center" FontSize="16" Margin="15 0" Text="{Binding Text}" />
-                                    </Grid>
-                                </DataTemplate>
-                            </ListBox.ItemTemplate>
                         </ListBox>
                     </StackPanel>
                 </ControlTemplate>

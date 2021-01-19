@@ -121,4 +121,9 @@
         </Style.Triggers>
     </Style>
 
+    <Style x:Key="MenuIcon2" TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource MenuIcon}">
+        <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="False" />
+        <Setter Property="IsHitTestVisible" Value="False" />
+    </Style>
+
 </ResourceDictionary>
